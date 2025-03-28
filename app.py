@@ -52,11 +52,11 @@ with st.sidebar:
                                       accept_multiple_files=True, type=None)
     
     st.info("Please refresh the browser if you decided to upload more files to reset the session", icon="🚨")
-    #Add refresh button to clear the session
+    #Refresh button to clear the session
     if st.button("Refresh"):
         # Delete all the items in Session state
-        for key in st.session_state.keys():
-            del st.session_state[key]
+        st.session_state.clear()  # Clears all stored session state variables
+        st.experimental_rerun()   # Forces a full rerun of the script
 
 
 # Check if files are uploaded
